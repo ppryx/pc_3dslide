@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<style>
+    .container1{
+        transform:translateZ(400px);
+        transform-style:preserve-3d;
+        width: 200px;
+        height:200px;
+        position:relative;
+        -webkit-perspective: 700px;
+        border:1px solid blue;
+    }
+    .container {
+        height: 200px;
+        width: 200px;
+        margin-right: auto;
+        margin-limgeft: auto;
+        border:1px solid red;
+        transform-style:preserve-3d;
+        -webkit-animation:slide 4s infinite linear;
+    }
+
+    .container2 {
+        height: 200px;
+        width: 200px;
+        margin-right: auto;
+        margin-left: auto;
+        border:1px solid red;
+        transform-style:preserve-3d;
+        transform: translateZ(-100px);
+
+    }
+    .slide{
+        transform-style: preserve-3d;
+        -webkit-transform-style: preserve-3d;
+        background-color: #666666;
+        transform-origin: 50% 50%;
+        border:1px solid red;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0px;
+        left:0px;
+    }
+    .hide {
+        transform: translateZ(100px);
+        -webkit-animation:hide 4s infinite linear;
+    }
+    .show {
+        transform: translateX(100px) rotateY(90deg);
+        -webkit-animation:show 4s infinite linear;
+    }
+    html {
+        height: 100%;
+        width: 100%;
+    }
+    body {
+        height: 100%;
+        width: 100%;
+    }
+    @-webkit-keyframes slide {
+        from {
+            transform: rotateY(0deg);
+        }
+        to {
+            transform: rotateY(-90deg);
+        }
+    }
+    @-webkit-keyframes hide {
+        from {
+            opacity: 1;
+        }
+        to {
+            opacity: 0;
+        }
+    }
+    @-webkit-keyframes show {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+    @keyframes slide {
+        from {
+            transform: rotateY(0deg);
+        }
+        to {
+            transform: rotateY(-90deg);
+        }
+    }
+    @keyframes hide {
+        from {
+            opacity: 1;
+        }
+        to {
+            opacity: 0;
+        }
+    }
+    @keyframes show {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+    .describe {
+        -webkit-animation: flip 1s ease-out backwards;
+        -webkit-animation-delay: 0s;
+        -webkit-transform-origin: center 0;
+        opacity: 1;
+        transform-style:preserve-3d;
+    }
+    .describe1 {
+        -webkit-animation: flip1 1s ease-out backwards;
+        -webkit-animation-delay: 0s;
+        -webkit-transform-origin: center 0;
+        opacity: 1;
+        transform-style:preserve-3d;
+        perspective: 400px;
+    }
+    @-webkit-keyframes flip {
+        0% {
+            -webkit-transform: translate3d(0, 0, 0) perspective(400px) rotateX(90deg);
+        }
+        30% {
+            -webkit-transform: translate3d(0, 0, 0) perspective(400px) rotateX(-20deg)
+        }
+        50% {
+            -webkit-transform: translate3d(0, 0, 0) perspective(400px) rotateX(20deg)
+        }
+        80% {
+            -webkit-transform: translate3d(0, 0, 0) perspective(400px) rotateX(-10deg)
+        }
+        90% {
+            -webkit-transform: translate3d(0, 0, 0) perspective(400px) rotateX(10deg)
+        }
+        100% {
+            -webkit-transform: translate3d(0, 0, 0) perspective(400px) rotateX(0deg);
+        }
+    }
+
+    @-webkit-keyframes flip1 {
+        0% {
+            -webkit-transform: translate3d(0, 0, 0)  rotateX(90deg);
+        }
+        30% {
+            -webkit-transform: translate3d(0, 0, 0)  rotateX(-20deg)
+        }
+        50% {
+            -webkit-transform: translate3d(0, 0, 0)  rotateX(20deg)
+        }
+        80% {
+            -webkit-transform: translate3d(0, 0, 0)  rotateX(-10deg)
+        }
+        90% {
+            -webkit-transform: translate3d(0, 0, 0)  rotateX(10deg)
+        }
+        100% {
+            -webkit-transform: translate3d(0, 0, 0)  rotateX(0deg);
+        }
+    }
+</style>
+<div class="container1">
+    <div class="container2">
+        <div class="container">
+            <div class="slide show">
+                pp1
+            </div>
+            <div class="slide hide">
+                pp2
+            </div>
+        </div>
+    </div>
+</div>
+<div class="describe" style="background-image: url('koi.jpg');height: 200px;width: 300px"></div>
+<div class="describe1" style="background-image: url('koi.jpg');height: 200px;width: 300px"></div>
+</body>
+<script type="text/javascript" src="/js/helper/jquery.min.js"></script>
+<script type="text/javascript" src="slidedemo.js"></script>
+</html>
